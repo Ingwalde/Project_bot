@@ -99,9 +99,10 @@ def get_somemusic(message):
                 'title': res.title,
                 'artist': res.artist,
                 'album': res.album,
-                'duration': duration
+                'duration': duration,
+                'link': res.link
             }
-            text = f"{track_dict['title']}, {track_dict['artist']}, {track_dict['album']}, Duration: {track_dict['duration']}"
+            text = f"{track_dict['title']}, {track_dict['artist']}, \n{track_dict['album']}, \nDuration: {track_dict['duration']}, \n\nLink: {track_dict['link']}"
             bot.send_message(message.from_user.id, text)
             song = genius.search_song(res.title)
             if song.lyrics != None:
